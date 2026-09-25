@@ -36,7 +36,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full bg-[#080808] text-white">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-[#1d1d1d] bg-[#080808] text-white">
       <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
 
         {/* Logo */}
@@ -75,7 +75,6 @@ export default function Navbar() {
         {/* Right Side */}
         <div className="flex items-center gap-6">
 
-          {/* Plan */}
           <Link
             href="/my-plan"
             className="flex items-center gap-2 text-xs font-bold"
@@ -87,7 +86,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Saved */}
           <Link
             href="/my-plan"
             className="flex items-center gap-2 text-xs font-bold text-white"

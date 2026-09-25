@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Footer from "../Footer";
+import { Clock3, Flame, Star } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 type Workout = {
   id: number;
@@ -173,76 +175,9 @@ export default function MyPlan() {
   }
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-[#080808] pt-20 text-white">
 
-      {/* Navbar */}
-      <header className="border-b border-[#1d1d1d] bg-[#080808]">
-        <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-
-          <Link
-            href="/"
-            className="flex items-center gap-2"
-          >
-            <Image
-              src="/logo.png"
-              alt="FitLog"
-              width={34}
-              height={34}
-              className="h-8 w-8 object-contain"
-              priority
-            />
-
-            <span className="text-lg font-extrabold">
-              FITLOG
-            </span>
-          </Link>
-
-          <div className="hidden items-center gap-7 md:flex">
-
-            <Link
-              href="/"
-              className="text-xs font-bold text-white"
-            >
-              WORKOUTS
-            </Link>
-
-            <Link
-              href="/my-plan"
-              className="rounded-full bg-[#ccff00] px-5 py-2 text-xs font-extrabold text-black"
-            >
-              MY PLAN
-            </Link>
-
-          </div>
-
-          <div className="flex items-center gap-5">
-
-            <Link
-              href="/my-plan"
-              className="flex items-center gap-2 text-xs font-bold"
-            >
-              Plan
-
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ccff00] text-black">
-                {plan.length}
-              </span>
-            </Link>
-
-            <Link
-              href="/my-plan"
-              className="flex items-center gap-2 text-xs font-bold"
-            >
-              Saved
-
-              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#555] text-white">
-                {saved.length}
-              </span>
-            </Link>
-
-          </div>
-
-        </nav>
-      </header>
+      <Navbar />
 
       {/* Main Content */}
       <section className="mx-auto max-w-6xl px-6 py-12">
@@ -449,39 +384,42 @@ export default function MyPlan() {
                   </div>
 
                   {/* Stats */}
-                  <div className="hidden items-center gap-5 md:flex">
+                  <div className="flex items-center gap-5 md:flex">
 
-                    <div>
-                      <p className="text-[8px] uppercase text-gray-600">
-                        Time
-                      </p>
+  <div>
+    <div className="flex items-center gap-1 text-gray-600">
+      <Clock3 size={12} />
+      <p className="text-[8px] uppercase">Time</p>
+    </div>
 
-                      <p className="mt-1 text-[10px] font-bold text-gray-300">
-                        {workout.duration} min
-                      </p>
-                    </div>
+    <p className="mt-1 text-[10px] font-bold text-gray-300">
+      {workout.duration} min
+    </p>
+  </div>
 
-                    <div>
-                      <p className="text-[8px] uppercase text-gray-600">
-                        Cal
-                      </p>
+  <div>
+    <div className="flex items-center gap-1 text-gray-600">
+      <Flame size={12} />
+      <p className="text-[8px] uppercase">Cal</p>
+    </div>
 
-                      <p className="mt-1 text-[10px] font-bold text-gray-300">
-                        {workout.caloriesBurned}
-                      </p>
-                    </div>
+    <p className="mt-1 text-[10px] font-bold text-gray-300">
+      {workout.caloriesBurned}
+    </p>
+  </div>
 
-                    <div>
-                      <p className="text-[8px] uppercase text-gray-600">
-                        Rating
-                      </p>
+  <div>
+    <div className="flex items-center gap-1 text-gray-600">
+      <Star size={12} />
+      <p className="text-[8px] uppercase">Rating</p>
+    </div>
 
-                      <p className="mt-1 text-[10px] font-bold text-gray-300">
-                        ★ {workout.rating}
-                      </p>
-                    </div>
+    <p className="mt-1 text-[10px] font-bold text-gray-300">
+      {workout.rating}
+    </p>
+  </div>
 
-                  </div>
+</div>
 
                   {/* View Details */}
                   <Link

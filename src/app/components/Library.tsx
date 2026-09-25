@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Clock3, Flame, Star } from "lucide-react";import { useEffect, useState } from "react";
+
 
 type Workout = {
   id: number;
@@ -199,39 +200,42 @@ export default function Library() {
                   </p>
 
                   {/* Stats */}
-                  <div className="mt-5 grid grid-cols-3 border-t border-[#252525] pt-4">
+<div className="mt-5 grid grid-cols-3 border-t border-[#252525] pt-4">
 
-                    <div>
-                      <p className="text-[10px] uppercase text-gray-500">
-                        Duration
-                      </p>
+  <div>
+    <div className="flex items-center gap-1 text-gray-500">
+      <Clock3 size={14} />
+      <span className="text-[10px] uppercase">Duration</span>
+    </div>
 
-                      <p className="mt-1 text-sm font-bold">
-                        {workout.duration} min
-                      </p>
-                    </div>
+    <p className="mt-1 text-sm font-bold">
+      {workout.duration} min
+    </p>
+  </div>
 
-                    <div>
-                      <p className="text-[10px] uppercase text-gray-500">
-                        Calories
-                      </p>
+  <div>
+    <div className="flex items-center gap-1 text-gray-500">
+      <Flame size={14} />
+      <span className="text-[10px] uppercase">Calories</span>
+    </div>
 
-                      <p className="mt-1 text-sm font-bold">
-                        {workout.caloriesBurned} kcal
-                      </p>
-                    </div>
+    <p className="mt-1 text-sm font-bold">
+      {workout.caloriesBurned} kcal
+    </p>
+  </div>
 
-                    <div>
-                      <p className="text-[10px] uppercase text-gray-500">
-                        Rating
-                      </p>
+  <div>
+    <div className="flex items-center gap-1 text-gray-500">
+      <Star size={14} />
+      <span className="text-[10px] uppercase">Rating</span>
+    </div>
 
-                      <p className="mt-1 text-sm font-bold">
-                        ★ {workout.rating}
-                      </p>
-                    </div>
+    <p className="mt-1 text-sm font-bold">
+      {workout.rating}
+    </p>
+  </div>
 
-                  </div>
+</div>
 
                 </div>
 
