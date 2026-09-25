@@ -3,6 +3,7 @@
 FitLog is a responsive workout library web application built with Next.js and Tailwind CSS.
 
 It allows users to browse workouts, view detailed workout information, create a daily workout plan, save workouts for later, mark workouts as completed, remove workouts, and sort workouts by different criteria.
+
 ## Technologies Used
 
 - Next.js
@@ -27,3 +28,33 @@ It allows users to browse workouts, view detailed workout information, create a 
 10. Loading animation and toast notifications.
 11. Custom 404 page for invalid workout routes.
 12. Maximum 5 workouts can be added to Today's Plan.
+
+## API
+
+Workout data is loaded from:
+
+https://api.abcz.workers.dev/api/fitlog
+
+Workout details are handled using the workout ID.
+
+## Project Structure
+
+```text
+src/
+└── app/
+    ├── components/
+    │   ├── Banner.tsx
+    │   ├── Library.tsx
+    │   ├── Navbar.tsx
+    │   └── workoutActions.tsx
+    │
+    ├── workout/
+    │   └── [id]/
+    │       └── page.tsx
+    │
+    ├── my-plan/
+    │   └── page.tsx
+    │
+    ├── Footer.tsx
+    ├── not-found.tsx
+    └── page.tsx
