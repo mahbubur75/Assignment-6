@@ -23,7 +23,7 @@ type Workout = {
 async function getWorkout(id: string): Promise<Workout | null> {
   try {
     const response = await fetch(
-      "https://api.abcz.workers.dev/api/fitlog",
+      `https://api.abcz.workers.dev/api/fitlog/${id}`,
       {
         cache: "no-store",
       }
@@ -33,13 +33,9 @@ async function getWorkout(id: string): Promise<Workout | null> {
       return null;
     }
 
-    const workouts: Workout[] = await response.json();
+    const workout: Workout = await response.json();
 
-    const workout = workouts.find(
-      (item) => item.id === Number(id)
-    );
-
-    return workout || null;
+    return workout;
   } catch (error) {
     console.error("API Error:", error);
     return null;
