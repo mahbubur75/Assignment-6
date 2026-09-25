@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import WorkoutActions from "../../components/workoutActions";
+import Footer from "@/app/Footer";
 
 type Workout = {
   id: number;
@@ -236,6 +237,7 @@ export default async function WorkoutDetailsPage({
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
