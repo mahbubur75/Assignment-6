@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [planCount, setPlanCount] = useState(0);
   const [savedCount, setSavedCount] = useState(0);
 
@@ -58,18 +60,26 @@ export default function Navbar() {
         {/* Navigation */}
         <div className="flex items-center gap-8">
           <Link
-            href="/"
-            className="rounded-full bg-[#d7f51b] px-5 py-2 text-xs font-bold text-black"
-          >
-            WORKOUT
-          </Link>
+  href="/"
+  className={`rounded-full px-5 py-2 text-xs font-bold ${
+    pathname === "/"
+      ? "bg-[#d7f51b] text-black"
+      : "text-white"
+  }`}
+>
+  WORKOUT
+</Link>
 
-          <Link
-            href="/my-plan"
-            className="text-xs font-bold text-white"
-          >
-            MY PLAN
-          </Link>
+<Link
+  href="/my-plan"
+  className={`rounded-full px-5 py-2 text-xs font-bold ${
+    pathname === "/my-plan"
+      ? "bg-[#d7f51b] text-black"
+      : "text-white"
+  }`}
+>
+  MY PLAN
+</Link>
         </div>
 
         {/* Right Side */}
