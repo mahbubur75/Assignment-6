@@ -175,24 +175,25 @@ export default function MyPlan() {
   }
 
   return (
-    <main className="min-h-screen bg-[#080808] pt-20 text-white">
+    <main className="min-h-screen overflow-x-hidden bg-[#080808] pt-20 text-white">
 
       <Navbar />
 
       {/* Main Content */}
-      <section className="mx-auto max-w-6xl px-6 py-12">
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
 
+        {/* Heading */}
         <div>
 
           <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#ccff00]">
             YOUR WORKOUTS
           </p>
 
-          <h1 className="mt-3 text-5xl font-extrabold uppercase tracking-tight md:text-6xl">
+          <h1 className="mt-3 text-4xl font-extrabold uppercase tracking-tight sm:text-5xl md:text-6xl">
             MY PLAN
           </h1>
 
-          <p className="mt-3 text-sm text-gray-400">
+          <p className="mt-3 text-sm leading-6 text-gray-400">
             Cap of five lifts for today. Finish them, then load more.
           </p>
 
@@ -201,32 +202,32 @@ export default function MyPlan() {
         {/* Statistics */}
         <div className="mt-8 grid grid-cols-3 overflow-hidden border border-[#252d35] bg-[#111820]">
 
-          <div className="border-r border-[#252d35] px-6 py-5">
-            <p className="text-[10px] font-bold uppercase text-gray-500">
+          <div className="border-r border-[#252d35] px-3 py-5 sm:px-6">
+            <p className="text-[9px] font-bold uppercase text-gray-500 sm:text-[10px]">
               Exercises
             </p>
 
-            <p className="mt-2 text-3xl font-extrabold text-[#ccff00]">
+            <p className="mt-2 text-2xl font-extrabold text-[#ccff00] sm:text-3xl">
               {currentExercises}
             </p>
           </div>
 
-          <div className="border-r border-[#252d35] px-6 py-5">
-            <p className="text-[10px] font-bold uppercase text-gray-500">
+          <div className="border-r border-[#252d35] px-3 py-5 sm:px-6">
+            <p className="text-[9px] font-bold uppercase text-gray-500 sm:text-[10px]">
               Minutes
             </p>
 
-            <p className="mt-2 text-3xl font-extrabold">
+            <p className="mt-2 text-2xl font-extrabold sm:text-3xl">
               {currentMinutes}
             </p>
           </div>
 
-          <div className="px-6 py-5">
-            <p className="text-[10px] font-bold uppercase text-gray-500">
+          <div className="px-3 py-5 sm:px-6">
+            <p className="text-[9px] font-bold uppercase text-gray-500 sm:text-[10px]">
               Calories
             </p>
 
-            <p className="mt-2 text-3xl font-extrabold">
+            <p className="mt-2 text-2xl font-extrabold sm:text-3xl">
               {currentCalories}
             </p>
           </div>
@@ -234,14 +235,14 @@ export default function MyPlan() {
         </div>
 
         {/* Tabs + Sort */}
-        <div className="mt-6 flex items-center justify-between">
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
-          <div className="flex overflow-hidden rounded-lg border border-[#252525] bg-[#111820]">
+          <div className="flex w-full overflow-hidden rounded-lg border border-[#252525] bg-[#111820] sm:w-auto">
 
             <button
               type="button"
               onClick={() => setActiveTab("today")}
-              className={`px-5 py-3 text-[10px] font-extrabold uppercase ${
+              className={`flex-1 px-4 py-3 text-[9px] font-extrabold uppercase sm:px-5 sm:text-[10px] ${
                 activeTab === "today"
                   ? "bg-[#26323b] text-white"
                   : "text-gray-500"
@@ -253,7 +254,7 @@ export default function MyPlan() {
             <button
               type="button"
               onClick={() => setActiveTab("saved")}
-              className={`px-5 py-3 text-[10px] font-extrabold uppercase ${
+              className={`flex-1 px-4 py-3 text-[9px] font-extrabold uppercase sm:px-5 sm:text-[10px] ${
                 activeTab === "saved"
                   ? "bg-[#26323b] text-white"
                   : "text-gray-500"
@@ -264,11 +265,11 @@ export default function MyPlan() {
 
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-end gap-2">
 
             <label
               htmlFor="sort"
-              className="text-[10px] font-bold uppercase text-gray-500"
+              className="text-[9px] font-bold uppercase text-gray-500 sm:text-[10px]"
             >
               Sort By
             </label>
@@ -281,17 +282,9 @@ export default function MyPlan() {
               }
               className="border border-[#252525] bg-[#111820] px-3 py-2 text-[10px] font-bold text-white outline-none"
             >
-              <option value="duration">
-                Duration
-              </option>
-
-              <option value="calories">
-                Calories
-              </option>
-
-              <option value="rating">
-                Rating
-              </option>
+              <option value="duration">Duration</option>
+              <option value="calories">Calories</option>
+              <option value="rating">Rating</option>
             </select>
 
           </div>
@@ -337,7 +330,7 @@ export default function MyPlan() {
               return (
                 <div
                   key={workout.id}
-                  className={`flex items-center gap-4 px-4 py-3 ${
+                  className={`grid grid-cols-[72px_minmax(0,1fr)] gap-3 px-3 py-4 sm:flex sm:items-center sm:gap-4 sm:px-4 sm:py-3 ${
                     index !== sortedList.length - 1
                       ? "border-b border-[#252525]"
                       : ""
@@ -345,7 +338,7 @@ export default function MyPlan() {
                 >
 
                   {/* Image */}
-                  <div className="relative h-14 w-20 shrink-0 overflow-hidden bg-[#1c252c]">
+                  <div className="relative h-16 w-20 shrink-0 overflow-hidden bg-[#1c252c] sm:h-14 sm:w-20">
 
                     <Image
                       src={workout.image}
@@ -358,13 +351,13 @@ export default function MyPlan() {
                   </div>
 
                   {/* Workout information */}
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0">
 
-                    <h2 className="text-xs font-extrabold uppercase text-white">
+                    <h2 className="text-xs font-extrabold uppercase text-white sm:text-xs">
                       {workout.name}
                     </h2>
 
-                    <p className="mt-1 text-[9px] text-gray-500">
+                    <p className="mt-1 truncate text-[9px] text-gray-500">
                       {workout.equipment}
                     </p>
 
@@ -384,44 +377,87 @@ export default function MyPlan() {
                   </div>
 
                   {/* Stats */}
-                  <div className="flex items-center gap-5 md:flex">
+                  <div className="col-span-2 grid grid-cols-3 gap-2 border-t border-[#252525] pt-3 sm:flex sm:items-center sm:gap-5 sm:border-0 sm:pt-0">
 
-  <div>
-    <div className="flex items-center gap-1 text-gray-600">
-      <Clock3 size={12} />
-      <p className="text-[8px] uppercase">Time</p>
-    </div>
+                    <div>
+                      <div className="flex items-center gap-1 text-gray-600">
+                        <Clock3 size={12} />
+                        <p className="text-[8px] uppercase">
+                          Time
+                        </p>
+                      </div>
 
-    <p className="mt-1 text-[10px] font-bold text-gray-300">
-      {workout.duration} min
-    </p>
-  </div>
+                      <p className="mt-1 text-[10px] font-bold text-gray-300">
+                        {workout.duration} min
+                      </p>
+                    </div>
 
-  <div>
-    <div className="flex items-center gap-1 text-gray-600">
-      <Flame size={12} />
-      <p className="text-[8px] uppercase">Cal</p>
-    </div>
+                    <div>
+                      <div className="flex items-center gap-1 text-gray-600">
+                        <Flame size={12} />
+                        <p className="text-[8px] uppercase">
+                          Cal
+                        </p>
+                      </div>
 
-    <p className="mt-1 text-[10px] font-bold text-gray-300">
-      {workout.caloriesBurned}
-    </p>
-  </div>
+                      <p className="mt-1 text-[10px] font-bold text-gray-300">
+                        {workout.caloriesBurned}
+                      </p>
+                    </div>
 
-  <div>
-    <div className="flex items-center gap-1 text-gray-600">
-      <Star size={12} />
-      <p className="text-[8px] uppercase">Rating</p>
-    </div>
+                    <div>
+                      <div className="flex items-center gap-1 text-gray-600">
+                        <Star size={12} />
+                        <p className="text-[8px] uppercase">
+                          Rating
+                        </p>
+                      </div>
 
-    <p className="mt-1 text-[10px] font-bold text-gray-300">
-      {workout.rating}
-    </p>
-  </div>
+                      <p className="mt-1 text-[10px] font-bold text-gray-300">
+                        {workout.rating}
+                      </p>
+                    </div>
 
-</div>
+                  </div>
 
-                  {/* View Details */}
+                  {/* Mobile Actions */}
+                  <div className="col-span-2 flex items-center gap-3 sm:hidden">
+
+                    <Link
+                      href={`/workout/${workout.id}`}
+                      className="flex-1 border border-[#333] px-3 py-2 text-center text-[9px] font-extrabold uppercase text-gray-400"
+                    >
+                      View Details
+                    </Link>
+
+                    {activeTab === "today" && (
+                      <button
+                        type="button"
+                        onClick={() => markDone(workout.id)}
+                        disabled={isDone}
+                        className={`flex-1 rounded-full px-3 py-2 text-[9px] font-extrabold uppercase ${
+                          isDone
+                            ? "bg-[#303030] text-gray-500"
+                            : "bg-[#ccff00] text-black"
+                        }`}
+                      >
+                        {isDone ? "✓ DONE" : "MARK DONE"}
+                      </button>
+                    )}
+
+                    {activeTab === "saved" && (
+                      <button
+                        type="button"
+                        onClick={() => removeSaved(workout.id)}
+                        className="flex-1 px-3 py-2 text-[9px] font-bold uppercase text-red-400"
+                      >
+                        Remove
+                      </button>
+                    )}
+
+                  </div>
+
+                  {/* Desktop View Details */}
                   <Link
                     href={`/workout/${workout.id}`}
                     className="hidden whitespace-nowrap text-[9px] font-extrabold uppercase text-gray-400 hover:text-white sm:block"
@@ -429,13 +465,13 @@ export default function MyPlan() {
                     View Details
                   </Link>
 
-                  {/* Mark Done */}
+                  {/* Desktop Mark Done */}
                   {activeTab === "today" && (
                     <button
                       type="button"
                       onClick={() => markDone(workout.id)}
                       disabled={isDone}
-                      className={`whitespace-nowrap rounded-full px-4 py-2 text-[9px] font-extrabold uppercase ${
+                      className={`hidden whitespace-nowrap rounded-full px-4 py-2 text-[9px] font-extrabold uppercase sm:block ${
                         isDone
                           ? "bg-[#303030] text-gray-500"
                           : "bg-[#ccff00] text-black"
@@ -445,23 +481,23 @@ export default function MyPlan() {
                     </button>
                   )}
 
-                  {/* Saved Remove */}
+                  {/* Desktop Saved Remove */}
                   {activeTab === "saved" && (
                     <button
                       type="button"
                       onClick={() => removeSaved(workout.id)}
-                      className="text-[9px] font-bold uppercase text-red-400"
+                      className="hidden text-[9px] font-bold uppercase text-red-400 sm:block"
                     >
                       Remove
                     </button>
                   )}
 
-                  {/* Today Remove */}
+                  {/* Desktop Today Remove */}
                   {activeTab === "today" && (
                     <button
                       type="button"
                       onClick={() => removeWorkout(workout.id)}
-                      className="text-[9px] font-bold text-gray-600 hover:text-red-400"
+                      className="hidden text-[9px] font-bold text-gray-600 hover:text-red-400 sm:block"
                     >
                       ×
                     </button>
@@ -478,7 +514,7 @@ export default function MyPlan() {
 
       {/* Toast */}
       {message && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-sm border border-[#ccff00] bg-[#101010] px-5 py-4 text-sm font-bold text-[#ccff00] shadow-lg">
+        <div className="fixed bottom-6 right-4 z-50 max-w-sm border border-[#ccff00] bg-[#101010] px-5 py-4 text-sm font-bold text-[#ccff00] shadow-lg">
           {message}
         </div>
       )}
